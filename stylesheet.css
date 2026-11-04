@@ -1,0 +1,125 @@
+html{
+   background-image: url(images/website_background2.jpg);
+   background-size: 100%;
+   /*background-repeat: repeat-y;*/
+   background-position: 50% 50%
+   background-attachment: fixed;
+
+}
+
+.grid-container {
+display: grid;
+grid-template-columns: (6, 200px);
+gap: 0px;
+height: 750px;
+row-gap: 40px;  
+
+
+grid-template-areas:
+"1 2 3 4 5 6";
+}
+
+  .central-cell {
+  display: grid;
+  place-items: center;
+}
+
+.circle {
+  width: 80%;            
+  aspect-ratio: 1;      
+  border-radius: 50%;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s;
+}
+    
+.reveal-image {
+  display: none;
+   width: 200%;  
+   align-items: center;
+  justify-content: center;          
+    width: var(--shape-size);
+  height: var(--shape-size);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;   
+    opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8); 
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.circle:focus + .reveal-image {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.trigger-shape,
+.revealed-image {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+}
+
+
+:root {
+  --shape-size: 200px;
+}
+
+.shape-link:hover .circle {
+  transform: scale(1.05);
+}
+  .shape-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.absolute-overlay {
+   pointer-events: none; /* Mouse actions completely ignore this layer */
+  z-index: 10;
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  z-index: 10;
+  text-align: center;
+}
+
+@keyframes colorShift {
+  0% { color: #ff0055; }    /* Red-Pink */
+  33% { color: #00ffcc; }   /* Turquoise */
+  66% { color: #ffcc00; }   /* Gold/Yellow */
+  100% { color: #ff0055; }  /* Loop back to the start color */
+}
+.flash-smooth {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: colorShift 2s linear infinite;
+}
+
+.grid-item.central-cell .video-link {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  display: block; /* Makes the entire block clickable */
+  z-index: 2;  
+}
+
+.grid-item.central-cell .shape-link {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  display: block;   
+  cursor: pointer; 
+  z-index: 2;      
+}
