@@ -1,8 +1,8 @@
 html{
-   background-image: url(website_background2.jpg);
+   background-image: url(./images/website_background2.jpg);
    background-size: 100%;
    /*background-repeat: repeat-y;*/
-   
+   /*background-position: 50% 50%;*/
    background-attachment: fixed;
 
 }
@@ -37,6 +37,14 @@ grid-template-areas:
 }
     
 .reveal-image {
+    position: absolute;
+  top: 50;
+  left: 50;
+  width: 100%;
+  height: 100%;   
+    object-fit: cover;
+  border-radius: 50%;  
+  pointer-events: none; 
   display: none;
    width: 200%;  
    align-items: center;
@@ -123,3 +131,39 @@ grid-template-areas:
   cursor: pointer; 
   z-index: 2;      
 }
+
+.video-container {
+  display: flex;
+  justify-content: center; /* Centers the video horizontally */
+  align-items: center;     /* Centers the video vertically (if container has height) */
+  width: 100%;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #345134;
+  color: #ff8dba;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #dbff71;
+}
+
+.link-container {
+  display: flex;
+  justify-content: center; /* Centers the link and image horizontally */
+  width: 100%;
+}
+.photo-link img {
+  width: 300px; /* Adjust as needed */
+  transition: filter 0.3s ease;
+}
+  .photo-link:hover img {
+  filter:hue-rotate(290deg)
+  }
